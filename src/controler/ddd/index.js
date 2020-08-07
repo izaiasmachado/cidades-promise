@@ -5,7 +5,7 @@ async function getCidadesByDdd(ddd){
     ddd = ddd.toString();
 
     if (ddd.length !== 2) {
-        return JSON.stringify({"error": "DDD incorreto."});
+        throw new Error("DDD incorreto.");
     }
 
     try {
@@ -15,7 +15,7 @@ async function getCidadesByDdd(ddd){
         return respostaTratada;
     
     } catch (error) {
-        return JSON.stringify({"error":"DDD não existe."});
+        throw new Error("DDD não existe.");
     }
 }
 

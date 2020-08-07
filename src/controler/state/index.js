@@ -3,7 +3,7 @@ const getCidades = require('../../service/state');
 async function getCidadesEstado(siglaEstado){
 
     if (siglaEstado.length !== 2) {
-        return JSON.stringify({"error": "UF incorreto."});
+        throw new Error("UF incorreto.");
     }
 
     try {
@@ -14,7 +14,7 @@ async function getCidadesEstado(siglaEstado){
         return respostaTratada;
     
     } catch (error) {
-        return JSON.stringify({"error":"UF não existe."});
+        throw new Error("UF não existe.");
     }
 
 }

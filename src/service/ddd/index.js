@@ -8,7 +8,7 @@ async function getCidadesByDdd(ddd) {
         return await axios.get(csvUrl, { headers: {'Accept': 'application/json'}});
         
     } catch (error) {
-        return JSON.stringify({"erro": "Erro ao buscar cidades"});
+        throw new Error("Erro ao buscar cidades");
     }
 }
 
